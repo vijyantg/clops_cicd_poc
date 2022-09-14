@@ -4,7 +4,7 @@ orbs:
 jobs:
   buildanddeploy:
     docker:
-      - image: cimg/openjdk:8.0.322
+      - image: openjdk
     working_directory: ~/workspace/circleci
     steps:
       - checkout
@@ -12,10 +12,10 @@ jobs:
           version: 20.10.14
           docker_layer_caching: true
       - run: |
-           sudo mkdir /etc/docker/
+           mkdir /etc/docker/
            cd /etc/docker/
            echo "{ "insecure-registries" : ["ec2-99-80-60-200.eu-west-1.compute.amazonaws.com:8085"]           }" >> daemon.json
-           sudo cat daemon.json
+           cat daemon.json
 #       - run: |
 #            sudo service docker restart
       - run: |    
