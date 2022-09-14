@@ -16,8 +16,7 @@ jobs:
            echo "{
            "insecure-registries" : ["ec2-99-80-60-200.eu-west-1.compute.amazonaws.com:8085"]
            }" >> daemon.json
-           sudo systemctl restart docker
-
+           sudo service docker restart
       - run: |    
           #sudo docker login -u admin nexus_public_dns_name:8085
           echo $DOCKER_PASS | docker login -u admin ${ DOCKER_USER}:8085 --password-stdin 
