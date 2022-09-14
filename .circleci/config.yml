@@ -14,10 +14,8 @@ jobs:
       - run: |
            sudo mkdir /etc/docker/
            cd /etc/docker/
-           sudo echo "{
-           "insecure-registries" : ["ec2-99-80-60-200.eu-west-1.compute.amazonaws.com:8085"]
-           }" >> daemon.json
-           sudo cat /etc/docker/daemon.json
+           echo "{ "insecure-registries" : ["ec2-99-80-60-200.eu-west-1.compute.amazonaws.com:8085"]           }" >> daemon.json
+           sudo cat daemon.json
 #       - run: |
 #            sudo service docker restart
       - run: |    
