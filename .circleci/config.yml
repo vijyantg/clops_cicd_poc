@@ -19,8 +19,8 @@ jobs:
            }" >> daemon.json
            cat daemon.json
       - run: |
-           sudo systemctl daemon-reload
-           sudo systemctl restart docker
+           systemctl daemon-reload
+           systemctl restart docker
       - run: |    
           docker login -u admin ${DOCKER_USER}:8085
 #           echo $DOCKER_PASS | docker login -u admin ${DOCKER_USER}:8085 --password-stdin 
