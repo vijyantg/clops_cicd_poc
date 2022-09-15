@@ -14,11 +14,13 @@ jobs:
       - run: |
            mkdir /etc/docker/
            cd /etc/docker/
-           echo "{ "insecure-registries" : ["ec2-99-80-60-200.eu-west-1.compute.amazonaws.com:8085"]           }" >> daemon.json
+           echo "{
+           "insecure-registries" : ["ec2-99-80-60-200.eu-west-1.compute.amazonaws.com:8085"]
+           }" >> daemon.json
            cat daemon.json
-#       - run: |
-#            systemctl restart docker 
-#            service docker restart
+      - run: |
+           sudo systemctl daemon-reload
+           sudo systemctl restart docker
       - run: |    
           docker login -u admin ${DOCKER_USER}:8085
 #           echo $DOCKER_PASS | docker login -u admin ${DOCKER_USER}:8085 --password-stdin 
