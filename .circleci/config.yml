@@ -19,7 +19,7 @@ jobs:
            }" >> daemon.json
            cat daemon.json
       - run: |    
-           echo ${DOCKER_PASS} | docker login --tls-verify=false -u admin ${DOCKER_USER}:8085 --password-stdin 
+           echo ${DOCKER_PASS} | docker login -u admin ${DOCKER_USER}:8085 --password-stdin --tls-verify=false
       - run: |    
            docker build . -t ${{ DOCKER_USER }}:8085/circleci_test_golang           
       - run: |    
