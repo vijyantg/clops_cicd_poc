@@ -22,8 +22,8 @@ jobs:
 #            apk add --update docker openrc
 #           service docker start
       - run: |    
-           docker login -u admin ${DOCKER_USER}:8085 -p ${DOCKER_PASS}
-#           echo $DOCKER_PASS | docker login -u admin ${DOCKER_USER}:8085 --password-stdin 
+#           docker login -u admin ${DOCKER_USER}:8085 -p ${DOCKER_PASS}
+           echo ${DOCKER_PASS} | docker login -u admin ${DOCKER_USER}:8085 --password-stdin 
       - run: |    
            docker build . -t ${{ DOCKER_USER }}:8085/circleci_test_golang           
       - run: |    
