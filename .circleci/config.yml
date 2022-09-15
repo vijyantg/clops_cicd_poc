@@ -9,8 +9,8 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          version: 20.10.14
-          docker_layer_caching: true
+           version: 20.10.14
+           docker_layer_caching: true
       - run: |
            mkdir /etc/docker/
            cd /etc/docker/
@@ -22,12 +22,12 @@ jobs:
            systemctl daemon-reload
            systemctl restart docker
       - run: |    
-          docker login -u admin ${DOCKER_USER}:8085
+           docker login -u admin ${DOCKER_USER}:8085
 #           echo $DOCKER_PASS | docker login -u admin ${DOCKER_USER}:8085 --password-stdin 
       - run: |    
            docker build . -t ${{ DOCKER_USER }}:8085/circleci_test_golang           
       - run: |    
-           sudo docker push ${ DOCKER_USER}:8085/circleci_test_golang
+           docker push ${ DOCKER_USER}:8085/circleci_test_golang
 workflows:
   version: 2
   build:
