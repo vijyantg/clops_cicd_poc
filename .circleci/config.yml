@@ -20,7 +20,7 @@ jobs:
            cat daemon.json
       - run: |
            apk add --update docker openrc
-           sudo service docker restart
+           service docker restart
       - run: |    
            echo ${DOCKER_PASS} | docker login -u admin ${DOCKER_USER}:8085 --password-stdin 
       - run: |    
