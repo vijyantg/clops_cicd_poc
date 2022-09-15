@@ -18,9 +18,9 @@ jobs:
            "insecure-registries" : ["ec2-99-80-60-200.eu-west-1.compute.amazonaws.com:8085"]
            }" >> daemon.json
            cat daemon.json
-#       - run: |
-#            apk add --update docker openrc
-#           service docker start
+      - run: |
+           apk add --update docker openrc
+           sudo service docker restart
       - run: |    
            echo ${DOCKER_PASS} | docker login -u admin ${DOCKER_USER}:8085 --password-stdin 
       - run: |    
