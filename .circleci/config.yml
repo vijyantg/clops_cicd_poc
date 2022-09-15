@@ -1,10 +1,10 @@
 version: 2.1
-orbs:
-  nexus-platform-orb: sonatype/nexus-platform-orb@1.0.28 
+# orbs:
+#   nexus-platform-orb: sonatype/nexus-platform-orb@1.0.28 
 jobs:
   buildanddeploy:
     docker:
-      - image: docker
+      - image: docker:20.10.16-dind
     working_directory: ~/workspace/circleci
     steps:
       - checkout
@@ -19,7 +19,7 @@ jobs:
            }" >> daemon.json
            cat daemon.json
       - run: |
-           apk add --update docker openrc
+ #          apk add --update docker openrc
            service docker restart
       - run: |    
            echo ${DOCKER_PASS} | docker login -u admin ${DOCKER_USER}:8085 --password-stdin 
