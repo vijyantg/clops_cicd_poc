@@ -4,7 +4,7 @@ version: 2.1
 jobs:
   buildanddeploy:
     docker:
-      - image: amazonlinux
+      - image: docker:20.10.16-dind
     working_directory: ~/workspace/circleci
     steps:
       - checkout
