@@ -48,14 +48,14 @@
   <servers>
     <server>
       <id>repository</id>
-      <username>${Nexus_User}</username>
-      <password>${Nexus_Pass}</password>
+      <username>admin</username>
+      <password>Vijyant@7</password>
     </server>
 
     <server>
       <id>snapshots</id>
-      <username>${Nexus_User}</username>
-      <password>${Nexus_Pass}</password>
+      <username>admin</username>
+      <password>Vijyant@7</password>
     </server>
   </servers>
   <!-- mirrors
